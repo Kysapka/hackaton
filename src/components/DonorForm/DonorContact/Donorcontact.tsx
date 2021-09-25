@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 
-export const DonorEvent = () => {
+export const Donorcontact = () => {
     let [contact, setContact] = useState("")
     return (
         <div>
@@ -10,7 +10,7 @@ export const DonorEvent = () => {
                     <input type={"text"} value={contact}/>
                 </div>
                 <div>
-                    тут должна быть форма для описания события
+                    тут должна быть форма для связи емайл и другие контакты
                 </div>
                 <div>
                     <button type="submit">отправить
