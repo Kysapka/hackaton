@@ -1,9 +1,9 @@
 import React, {useState} from 'react';
-import {Modale} from "./Modale";
-import {Chat} from "./chat";
+import {Modal} from "./Modal";
+import {Chat} from "./Chat";
 
 export const ProfileMagic = () => {
-    let [modale, setModale] = useState(false)
+    let [modal, setModal] = useState(false)
     let [chat,setChat]=useState(false)
     return (
         <div>
@@ -16,7 +16,7 @@ export const ProfileMagic = () => {
                 <p>Помочь еще одному мечтателю</p>
                 <p>Запланированные мероприятия</p>
                 <p>Мероприятия которые вы провели</p>
-                <p onClick={()=>{setModale(true)}}>Добавить мероприятие</p>
+                <p onClick={()=>{setModal(true)}}>Добавить мероприятие</p>
                 <p onClick={()=>{setChat(true)}}>Сообщения</p>
                 <div>
                     <h3>Личные данные</h3>
@@ -25,7 +25,7 @@ export const ProfileMagic = () => {
                     <p>SocialNetwork</p>
                 </div>
             </div>
-            {modale && <Modale modale={modale} setModale={setModale}/>}
+            {modal && <Modal modale={modal} setModale={setModal}/>}
             {chat && <Chat chat={chat} setChat={setChat}/>}
         </div>
     );

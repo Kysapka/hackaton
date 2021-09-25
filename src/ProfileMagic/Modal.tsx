@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 
 
 export type ModaleProps = { modale: boolean, setModale: (modale: boolean) => void }
-export const Modale = (props: ModaleProps) => {
+export const Modal = (props: ModaleProps) => {
 
     const modal = {
         height: "100hv",
