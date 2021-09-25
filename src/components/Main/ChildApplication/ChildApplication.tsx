@@ -4,6 +4,7 @@ import s from './Application.module.css'
 import {useDispatch, useSelector} from "react-redux";
 import {RootStateType} from "../../../Store/Store";
 import {addChildAC, childStateType} from "../../../Store/Reducer_Child";
+import { NavLink } from 'react-router-dom';
 
 export const ChildApplication: React.FC = () => {
 
@@ -45,7 +46,7 @@ export const ChildApplication: React.FC = () => {
     }
 
     return (
-        <div>
+        <div className="apply">
             <form className={s.apply}>
                 <h1 className={s.header}>Расскажи о себе</h1>
                 <input type="text" value={child.login} placeholder={'Введи логин'} className={s.appInput}
@@ -61,7 +62,7 @@ export const ChildApplication: React.FC = () => {
                 <textarea name="dream"
                           placeholder={'Расскажи о своих увлечениях и достижениях'}
                           className={s.appTextarea} onChange={areaHandler} value={child.valueArea}/>
-                <button className={s.appButton} onClick={appChange}>Найди свой путь</button>
+                <NavLink to="/index/child-profile" className="donor__button" onClick={appChange}>Найди свой путь</NavLink>
             </form>
         </div>
 
