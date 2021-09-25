@@ -16,8 +16,8 @@ export const DonorForm = () => {
 
     let [radio, setRadio] = useState("")
     let [formaEnter, setFormaEnter] = useState(false)
-    let [user, setUser] = useState<userType>({name: "",password:"" ,formaEnter: false, radio: ''})
-
+    let [user, setUser] = useState<userType>({name: "", password: "", formaEnter: false, radio: ''})
+    let [error, setError] = useState(false)
     // Firebase
     const {auth, firestore} = useContext<any>(Context)
     const [auth_user] = useAuthState(auth)
@@ -34,10 +34,11 @@ export const DonorForm = () => {
 
 
     return <div>
+        {error && <h1>Ошибка</h1>}
         {formaEnter || <Donor addUser={addUser} newUser={user} setNewUser={setUser} radio={radio} setRadio={setRadio}
-                              formaEnter={formaEnter} setFormaEnter={setFormaEnter}/>}
-        {radio === "private" && formaEnter && <Donorcontact/>}
-        {radio === "event" && formaEnter && <DonorEvent/>}
+                              formaEnter={formaEnter} setFormaEnter={setFormaEnter} setError={setError}/>}
+        {radio === "private" && formaEnter && <Donorcontact setError={setError}/>}
+        {radio === "event" && formaEnter && <DonorEvent setError={setError}/>}
         {radio === "finance" && formaEnter && <DonorFinance/>}
         <Rating/>
     </div>

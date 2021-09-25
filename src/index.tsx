@@ -6,6 +6,7 @@ import {BrowserRouter} from "react-router-dom";
 import 'firebase/firestore';
 import 'firebase/auth';
 import firebase from "firebase/compat";
+import {ProfileMagic} from "./ProfileMagic/ProfileMagic";
 
 
 // Initialize Firebase
@@ -33,7 +34,8 @@ ReactDOM.render(
                 auth,
                 firestore
             }}>
-            <App/>
+                <ProfileMagic/>
+            {/*<App/>*/}
             </Context.Provider>
         </BrowserRouter>
     </React.StrictMode>,
