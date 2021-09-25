@@ -1,0 +1,17 @@
+.donor {
+  &__input {
+    padding: 8px 10px 8px 12px;
+    margin-bottom: 15px;
+
+    display: block;
+    max-width: 300px;
+    width: 100%;
+
+    font-size: 1.2rem;
+
+    background: linear-gradient(to bottom, #009474 0%, #48CFAE 100%);
+    border-radius: 25px;
+    border: none;
+    outline: none;
+  }
+}
