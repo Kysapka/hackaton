@@ -1,12 +1,17 @@
 import {v1} from "uuid";
 
-export type initUserType = typeof ChildState
+const ADD_CHILD = 'ADD_CHILD'
 
-export const ChildState = [
+export type childStateType = typeof initChildState
+
+export type childActionTypes = addChildAT
+
+type addChildAT = ReturnType<typeof addChildAC>
+
+export const initChildState = [
     {
         id: v1(),
-        name: "",
-        formaEnter: false,
+        name: "Ivan",
         radio: "event",
         formaContact: false,
         contact: "",
@@ -15,23 +20,13 @@ export const ChildState = [
     }
 ]
 
-export const ChildReducer = (state: initUserType, action: any): initUserType => {
+export const ChildReducer = (state: childStateType = initChildState, action: childActionTypes): childStateType => {
     switch (action.type) {
-        case "SET_START_CHILD":
+        case ADD_CHILD:
             return [...state]
         default :
             return state
     }
 }
 
-export type setChildStartAT=ReturnType<typeof setChildStartAC>
-
-export const setChildStartAC = (id:string,name: string) => {
-    return {
-        type: "SET_START_CHILD",
-        payload: {
-            id,
-            name,
-        }
-    }
-}
+export const addChildAC = () => ({type: ADD_CHILD, id: v1()} as const)
