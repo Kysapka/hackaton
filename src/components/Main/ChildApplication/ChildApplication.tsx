@@ -3,31 +3,26 @@ import s from './Application.module.css'
 import firebase from "firebase/compat";
 import {useDispatch, useSelector} from "react-redux";
 import {RootStateType} from "../../../Store/Store";
-import {sponsorsStateType} from "../../../Store/Reducer_Sponsor";
-import {addChildAC, childStateType} from "../../../Store/Reducer_Child";
 
-type ApplicationType = {
-    name: string
-    age: string
-    dream: string
-    job: string
-}
+import {addChildAC, childStateType} from "../../../Store/Reducer_Child";
+import {v1} from "uuid";
 
 export const ChildApplication: React.FC = () => {
 
     const dispatch = useDispatch()
-    let   childs = useSelector<RootStateType, childStateType>(state => state.childs)
+    let childs = useSelector<RootStateType, childStateType>(state => state.childs)
 
-    let [child, setChild] = useState<any>({login: "",pass:"" ,valueName: '', valueYears: '', about: '', dream: ''})
+    let [child, setChild] = useState<any>({})
 
     const appChange = () => {
-        dispatch(addChildAC())
+        dispatch(addChildAC(child.login, child.pass, child.valueYears, child.valueName, child.valueJob, child.valueArea))
     }
 
     const nameHandler = (e: ChangeEvent<HTMLInputElement>) => {
         setChild({...child, valueName: e.currentTarget.value})
     }
     const jobHandler = (e: ChangeEvent<HTMLInputElement>) => {
+
         setChild({...child, valueJob: e.currentTarget.value})
 
     }
@@ -68,6 +63,18 @@ export const ChildApplication: React.FC = () => {
                           className={s.appTextarea} onChange={areaHandler} value={child.valueArea}/>
                 <button className={s.appButton} onClick={appChange}>Найди свой путь</button>
             </form>
+
+            // Render Component Data:
+            <div style={{color: "red"}}>
+                <div>{child.login} - login</div>
+                <div>{child.pass} - pass</div>
+                <div>{child.valueName} - valueName</div>
+                <div>{child.valueYears} - valueYears</div>
+                <div>{child.valueJob} - valueJob</div>
+                <div>{child.valueArea} - valueArea</div>
+            </div>
+            // Render Component END:
+
         </div>
 
     );
