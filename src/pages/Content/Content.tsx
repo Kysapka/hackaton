@@ -9,7 +9,7 @@ export const Content: React.FC = () => {
 			<Header />
 			{
 				publicRoutes.map(({path, Component}) =>
-					<Route key={ path } path={ path } component={ Component } exact  />
+					<Route key={ path } path={ path } component={ Component } exact />
 				)
 			}
 		</BrowserRouter>
