@@ -1,9 +1,16 @@
-import React from 'react';
-import {v1} from "uuid";
+import React, {useContext, useState} from 'react';
+
+export type userType = {
+    name: string
+    password:string
+    formaEnter: boolean
+    radio: string
+}
 
 type propsType = {
-    name: string
-    setName: (value:string) => void
+    addUser: () => void
+    newUser: userType
+    setNewUser: (user: userType) => void
     radio: string
     setRadio: (value:string) => void
     formaEnter:boolean
@@ -11,15 +18,20 @@ type propsType = {
 }
 
 export const Donor = (props:propsType) => {
+
     return (
         <div>
             <form>
                 <p>Вы волшебник первого уровня,давайте познакомимся и вы
                     выберите вид помощи который вы хотите оказать</p>
                 <div>
-                    <input type={"text"} value={props.name} onChange={(e) => {
-                        props.setName(e.currentTarget.value)
+                    <input type={"text"} value={props.newUser.name} onChange={(e) => {
+                        props.setNewUser({...props.newUser, name: e.currentTarget.value})
                     }}/>
+                    <input type={"text"} value={props.newUser.password} onChange={(e) => {
+                        props.setNewUser({...props.newUser,password: e.currentTarget.value})
+                    }}/>
+
                 </div>
                 <div>
                     <input type="radio" id="contactChoice1" name="contact" value="event" onChange={(e) => {
@@ -37,17 +49,9 @@ export const Donor = (props:propsType) => {
                 </div>
                 <div>
                     <button type="submit" onClick={() => {
-                        props.setFormaEnter(true);
-                        // props.setUser([...users, {    ///////////dispatch
-                        //     id: v1(),
-                        //     name:props.name,
-                        //     formaEnter:props.formaEnter,
-                        //     radio: "event",
-                        //     formaContact: false,
-                        //     contact: "",
-                        //     rating: "",
-                        //     events: ""
-                        // }])
+                        props.setFormaEnter(true)
+                        props.addUser()
+
                     }}>Выбрать вид помощи
                     </button>
                 </div>

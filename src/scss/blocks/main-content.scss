@@ -1,19 +1,31 @@
 .main-content {
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
   width: 100%;
   height: 600px;
-  
-  &__left,
-  &__right {
-    flex: 1 1 50%;
-    height: 100%;
 
-    background-color: #FFFFFF;
-  }
+  &__button {
+    position: relative;
+    z-index: 2;
 
-  &__left {
-    margin-right: 30px;
+    padding: 15px 0;
+
+    max-width: 350px;
+    width: 100%;
+
+    font-size: 1.5rem;
+
+    text-align: center;
+    border: 3px solid #37bc9b;
+    background-color: transparent;
+    color: #FFFFFF;
+
+    border-radius: 30px;
+    transition: background-color 0.3s;
+
+    &:hover {
+      background-color: #37bc9b;
+    }
   }
 }
