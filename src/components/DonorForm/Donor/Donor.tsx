@@ -5,6 +5,7 @@ type propsType = {
     newUser: any
     setNewUser: (user: any) => void
     setformaEnter: (value: boolean) => void
+    setError:(error:boolean)=>void
 }
 
 export const Donor = (props:propsType) => {

@@ -1,7 +1,10 @@
 import React, {useState} from 'react';
 import { Button } from '../../Button/Button';
+type propTypeContact={
+    setError:(error:boolean)=>void
+}
 
-export const Donorcontact = () => {
+export const Donorcontact = (props:propTypeContact) => {
     let [contactMail, setContactMail] = useState("")
     let [contactSocial, setContactSocial] = useState("")
     let [contactTelephone, setContactTelephone] = useState("")
