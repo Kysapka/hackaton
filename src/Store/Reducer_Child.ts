@@ -29,4 +29,4 @@ export const ChildReducer = (state: childStateType = initChildState, action: chi
     }
 }
 
-export const addChildAC = (name: string) => ({type: ADD_CHILD, id: v1(), name} as const)
+export const addChildAC = () => ({type: ADD_CHILD, id: v1()} as const)

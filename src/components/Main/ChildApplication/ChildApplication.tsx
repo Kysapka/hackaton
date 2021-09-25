@@ -1,6 +1,10 @@
 import React, {ChangeEvent, useContext, useState} from 'react';
 import s from './Application.module.css'
 import firebase from "firebase/compat";
+import {useDispatch, useSelector} from "react-redux";
+import {RootStateType} from "../../../Store/Store";
+import {sponsorsStateType} from "../../../Store/Reducer_Sponsor";
+import {addChildAC, childStateType} from "../../../Store/Reducer_Child";
 
 type ApplicationType = {
     name: string
@@ -11,10 +15,13 @@ type ApplicationType = {
 
 export const ChildApplication: React.FC = () => {
 
+    const dispatch = useDispatch()
+    let   childs = useSelector<RootStateType, childStateType>(state => state.childs)
+
     let [child, setChild] = useState<any>({login: "",pass:"" ,valueName: '', valueYears: '', about: '', dream: ''})
 
     const appChange = () => {
-        // CODE
+        dispatch(addChildAC())
     }
 
     const nameHandler = (e: ChangeEvent<HTMLInputElement>) => {
@@ -44,7 +51,6 @@ export const ChildApplication: React.FC = () => {
 
     return (
         <div>
-            {/*<button onCkick={() => auth.signInAnonymously()}>LOGIN ANON</button>*/}
             <form className={s.apply}>
                 <h1 className={s.header}>Расскажи о себе</h1>
                 <input type="text" value={child.login} placeholder={'Введи логин'} className={s.appInput}
