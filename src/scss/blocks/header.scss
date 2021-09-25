@@ -1,5 +1,6 @@
 .header {
   margin-bottom: 100px;
+  margin-top: 50px;
 
   width: 100%;
 
@@ -8,6 +9,7 @@
   .menu {
     &__list {
       display: flex;
+      justify-content: center;
     }
     
     &__link {
