@@ -5,3 +5,5 @@ export const DONE_DREAMS_ROUTE = INDEX_ROUTE + '/done-dreams';
 export const EVENTS_ROUTE = INDEX_ROUTE + '/events';
 export const DONOR_ROUTE = INDEX_ROUTE + '/donor';
 export const DREAM_ROUTE = INDEX_ROUTE + '/dream';
+export const CHILD_PROFILE = INDEX_ROUTE + '/child-profile';
+export const MAGIC_PROFILE_ROUTE = INDEX_ROUTE + '/magic-profile';

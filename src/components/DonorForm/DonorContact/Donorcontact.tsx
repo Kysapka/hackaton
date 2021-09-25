@@ -1,21 +1,16 @@
 import React, {useState} from 'react';
+import { Button } from '../../Button/Button';
 
-type propsType={
-    setError:(a:boolean)=>void
-}
-export const Donorcontact = (props:propsType) => {
+export const Donorcontact = () => {
     let [contactMail, setContactMail] = useState("")
     let [contactSocial, setContactSocial] = useState("")
     let [contactTelephone, setContactTelephone] = useState("")
     let [contactTextarea, setTextArea] = useState("")
-    // let [error, setError] = useState(false)
     return (
         <div>
-            {/*{console.log(error)}*/}
-            <div>
+            <form>
                 <p>Здравствуйте</p>
                 <div>
-                    {/*{error && <h3 className={"error"}>{"Заполните необходимые поля"}</h3>}*/}
                     <input type="email" value={contactMail} onChange={(e) => {
                         setContactMail(e.currentTarget.value)
                     }}/>
@@ -34,12 +29,9 @@ export const Donorcontact = (props:propsType) => {
                     <label>Расскажите о себе,например,я преподователь английского и хочу оказать адресную помощь</label>
                 </div>
                 <div>
-                    <button  onClick={() => {
-                        props.setError(true);
-                    }}>отправить
-                    </button>
+                    <Button text="Отправить" link="/index/magic-profile" />
                 </div>
-            </div>
+            </form>
         </div>
     );
 };

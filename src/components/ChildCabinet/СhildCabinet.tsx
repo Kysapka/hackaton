@@ -9,7 +9,7 @@ import {Chat} from "./Chat";
 
 
 
-export const СhildCabinet= () => {
+export const ChildCabinet = () => {
 
     return (
         <div className={s.container}>

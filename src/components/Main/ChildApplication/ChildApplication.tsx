@@ -5,6 +5,7 @@ import {useDispatch, useSelector} from "react-redux";
 import {RootStateType} from "../../../Store/Store";
 import {sponsorsStateType} from "../../../Store/Reducer_Sponsor";
 import {addChildAC, childStateType} from "../../../Store/Reducer_Child";
+import { Button } from '../../Button/Button';
 
 type ApplicationType = {
     name: string
@@ -66,7 +67,7 @@ export const ChildApplication: React.FC = () => {
                 <textarea name="dream"
                           placeholder={'Расскажи о своих увлечениях и достижениях'}
                           className={s.appTextarea} onChange={areaHandler} value={child.valueArea}/>
-                <button className={s.appButton} onClick={appChange}>Найди свой путь</button>
+                <Button text="Найди свой путь" link="/index/child-profile" onClick={appChange} />
             </form>
         </div>
 
