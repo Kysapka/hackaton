@@ -1,19 +1,35 @@
 import React, {useState} from 'react';
 
 export const Donorcontact = () => {
-    let [contact, setContact] = useState("")
+    let [contactMail, setContactMail] = useState("")
+    let [contactSocial, setContactSocial] = useState("")
+    let [contactTelephone, setContactTelephone] = useState("")
+    let [contactTextarea, setTextArea] = useState("")
     return (
         <div>
             <form>
                 <p>Здравствуйте</p>
                 <div>
-                    <input type={"text"} value={contact}/>
+                    <input type="email" value={contactMail} onChange={(e) => {
+                        setContactMail(e.currentTarget.value)
+                    }}/>
+                    <label>Введите свой емэйл</label>
+                    <input type="text" value={contactSocial} onChange={(e) => {
+                        setContactSocial(e.currentTarget.value)
+                    }}/>
+                    <label>Введите ссылку на соцсеть</label>
+                    <input type="tel" value={contactTelephone} onChange={(e) => {
+                        setContactTelephone(e.currentTarget.value)
+                    }}/>
+                    <label>Введите свой телефон</label>
+                    <textarea value={contactTextarea} onChange={(e) => {
+                        setTextArea(e.currentTarget.value)
+                    }}/>
+                    <label>Расскажите о себе,например,я преподователь английского и хочу оказать адресную помощь</label>
                 </div>
                 <div>
-                    тут должна быть форма для связи емайл и другие контакты
-                </div>
-                <div>
-                    <button type="submit">отправить
+                    <button type="submit" onClick={() => {
+                    }}>отправить
                     </button>
                 </div>
             </form>

@@ -2,6 +2,7 @@ import React, {useContext, useState} from 'react';
 
 export type userType = {
     name: string
+    password:string
     formaEnter: boolean
     radio: string
 }
@@ -27,6 +28,10 @@ export const Donor = (props:propsType) => {
                     <input type={"text"} value={props.newUser.name} onChange={(e) => {
                         props.setNewUser({...props.newUser, name: e.currentTarget.value})
                     }}/>
+                    <input type={"text"} value={props.newUser.password} onChange={(e) => {
+                        props.setNewUser({...props.newUser,password: e.currentTarget.value})
+                    }}/>
+
                 </div>
                 <div>
                     <input type="radio" id="contactChoice1" name="contact" value="event" onChange={(e) => {
@@ -46,6 +51,7 @@ export const Donor = (props:propsType) => {
                     <button type="submit" onClick={() => {
                         props.setFormaEnter(true)
                         props.addUser()
+
                     }}>Выбрать вид помощи
                     </button>
                 </div>

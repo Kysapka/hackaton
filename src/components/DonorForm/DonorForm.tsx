@@ -13,11 +13,10 @@ import firebase from "firebase/compat";
 
 export const DonorForm = () => {
 
-    // let [name, setName] = useState("")
+
     let [radio, setRadio] = useState("")
     let [formaEnter, setFormaEnter] = useState(false)
-    let [formaContact, setFormaContact] = useState(false)
-    let [user, setUser] = useState<userType>({name: "", formaEnter: false, radio: ''})
+    let [user, setUser] = useState<userType>({name: "",password:"" ,formaEnter: false, radio: ''})
 
     // Firebase
     const {auth, firestore} = useContext<any>(Context)
@@ -37,9 +36,9 @@ export const DonorForm = () => {
     return <div>
         {formaEnter || <Donor addUser={addUser} newUser={user} setNewUser={setUser} radio={radio} setRadio={setRadio}
                               formaEnter={formaEnter} setFormaEnter={setFormaEnter}/>}
-        {radio === "private" && <Donorcontact/>}
-        {radio === "event" && <DonorEvent/>}
-        {radio === "finance" && <DonorFinance/>}
+        {radio === "private" && formaEnter && <Donorcontact/>}
+        {radio === "event" && formaEnter && <DonorEvent/>}
+        {radio === "finance" && formaEnter && <DonorFinance/>}
         <Rating/>
     </div>
 }
