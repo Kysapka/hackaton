@@ -10,6 +10,6 @@ interface IButton extends DefaultPropsType {
 
 export const Button: React.FC<IButton> = ({text, link}) => {
 	return (
-		<NavLink className="main-content__button" to={link}>{text}</NavLink>
+		<NavLink to={link}>{text}</NavLink>
 	);
 };

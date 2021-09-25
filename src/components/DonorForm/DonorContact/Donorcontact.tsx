@@ -12,27 +12,38 @@ export const Donorcontact = (props:propTypeContact) => {
     return (
         <div>
             <form>
-                <p>Здравствуйте</p>
+                <p className="donor__text">Здравствуйте, (имя/фамилия)</p>
                 <div>
-                    <input type="email" value={contactMail} onChange={(e) => {
-                        setContactMail(e.currentTarget.value)
-                    }}/>
-                    <label>Введите свой емэйл</label>
-                    <input type="text" value={contactSocial} onChange={(e) => {
-                        setContactSocial(e.currentTarget.value)
-                    }}/>
-                    <label>Введите ссылку на соцсеть</label>
-                    <input type="tel" value={contactTelephone} onChange={(e) => {
-                        setContactTelephone(e.currentTarget.value)
-                    }}/>
-                    <label>Введите свой телефон</label>
-                    <textarea value={contactTextarea} onChange={(e) => {
-                        setTextArea(e.currentTarget.value)
-                    }}/>
-                    <label>Расскажите о себе,например,я преподователь английского и хочу оказать адресную помощь</label>
+                    <label className="donor__item">
+                        <span className="donor__span">Введите свой email</span>
+                        <input className="donor__input" type="email" value={contactMail} onChange={(e) => {
+                            setContactMail(e.currentTarget.value)
+                        }}/>
+                    </label>
+
+                    <label className="donor__item">
+                        <span className="donor__span">Введите ссылку на соцсеть</span>
+                        <input className="donor__input" type="text" value={contactSocial} onChange={(e) => {
+                            setContactSocial(e.currentTarget.value)
+                        }}/>
+                    </label>
+
+                    <label className="donor__item">
+                        <span className="donor__span">Введите свой телефон</span>
+                        <input className="donor__input" type="tel" value={contactTelephone} onChange={(e) => {
+                            setContactTelephone(e.currentTarget.value)
+                        }}/>
+                    </label>
+
+                    <label className="donor__textarea">
+                        <span>Расскажите о себе, например, я преподаватель английского и хочу оказать адресную помощь</span>
+                        <textarea value={contactTextarea} onChange={(e) => {
+                            setTextArea(e.currentTarget.value)
+                        }}/>
+                    </label>
                 </div>
-                <div>
-                    <Button text="Отправить" link="/index/magic-profile" />
+                <div className="donor__contact">
+                    <Button className="donor__contact" text="Отправить" link="/index/magic-profile" />
                 </div>
             </form>
         </div>

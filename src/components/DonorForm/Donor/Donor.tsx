@@ -13,9 +13,9 @@ export const Donor = (props:propsType) => {
     return (
         <div>
             <form>
-                <p>Вы волшебник первого уровня,давайте познакомимся и вы
-                    выберите вид помощи который вы хотите оказать</p>
-                <div>
+                <p className="donor__text">Вы волшебник первого уровня, давайте познакомимся и Вы
+                    выберите вид при помощи который вы хотите оказать помощь</p>
+                <div className="donor__inputs">
                     <input className="donor__input" placeholder="Ваш логин" type={"text"} value={props.newUser.name} onChange={(e) => {
                         props.setNewUser({...props.newUser, name: e.currentTarget.value})
                     }}/>
@@ -24,22 +24,30 @@ export const Donor = (props:propsType) => {
                     }}/>
 
                 </div>
-                <div>
-                    <input type="radio" id="contactChoice1" name="contact" value="event" onChange={(e) => {
-                        props.setNewUser({...props.newUser, radio: e.currentTarget.value})
-                    }}/>
-                    <label htmlFor="contactChoice1">Я хочу организовать мероприятие</label>
-                    <input type="radio" id="contactChoice2" name="contact" value="finance" onChange={(e) => {
-                        props.setNewUser({...props.newUser, radio: e.currentTarget.value})
-                    }}/>
-                    <label htmlFor="contactChoice2">Оплачу курсы,куплю игрушки,помогу финансово</label>
-                    <input type="radio" id="contactChoice3" name="contact" value="private" onChange={(e) => {
-                        props.setNewUser({...props.newUser, radio: e.currentTarget.value})
-                    }}/>
-                    <label htmlFor="contactChoice3">Свяжитесь со мной лично</label>
+                <div className="donor__radios">
+                    <label className="donor__label">
+                        <input type="radio" id="contactChoice1" name="contact" value="event" onChange={(e) => {
+                            props.setNewUser({...props.newUser, radio: e.currentTarget.value})
+                        }}/>
+                        <span>Я хочу организовать мероприятие</span>
+                    </label>
+
+                    <label className="donor__label">
+                        <input type="radio" id="contactChoice2" name="contact" value="finance" onChange={(e) => {
+                            props.setNewUser({...props.newUser, radio: e.currentTarget.value})
+                        }}/>
+                        <span>Оплачу курсы,куплю игрушки,помогу финансово</span>
+                    </label>
+
+                    <label className="donor__label">
+                        <input type="radio" id="contactChoice3" name="contact" value="private" onChange={(e) => {
+                            props.setNewUser({...props.newUser, radio: e.currentTarget.value})
+                        }}/>
+                        <span>Свяжитесь со мной лично</span>
+                    </label>
                 </div>
-                <div>
-                    <button type="submit" onClick={() => {
+                <div className="donor__button-box">
+                    <button className="donor__button" type="submit" onClick={() => {
                         props.setformaEnter(true)
                         props.addUser()
 
