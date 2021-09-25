@@ -20,7 +20,7 @@ export const DonorForm = () => {
         dispatch(addSponsorAC(user.name, true, user.radio))
     }
 
-    return <div className="donor">
+    return <div>
         {error && <h3>"Заполните необходимые поля"</h3>}
         {formaEnter || <Donor addUser={addUser} newUser={user} setNewUser={setUser} setformaEnter={setformaEnter} setError={setError}/>}
         {user.radio === "private" && formaEnter && <Donorcontact setError={setError}/>}

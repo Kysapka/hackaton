@@ -13,7 +13,7 @@ export const initSponsorState = [
         id: v1(),
         name: "Vasya",
         password: "111",
-        radio: "event",
+        radio: "",
         formaContact: false,
         contact: "",
         rating: "",
