@@ -32,6 +32,7 @@ export const DonorForm = () => {
             )
     }
 
+
     return <div>
             {formaEnter || <Donor addUser={addUser} newUser={user} setNewUser={setUser} radio={radio} setRadio={setRadio} formaEnter={formaEnter} setFormaEnter={setFormaEnter}/>}
             {<Donorcontact/>}
