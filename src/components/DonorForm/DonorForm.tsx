@@ -12,19 +12,20 @@ export const DonorForm = () => {
 
     const dispatch = useDispatch()
     let sponsors = useSelector<RootStateType, sponsorsStateType>(state => state.sponsors)
-
+    let [error, setError] = useState(false)
     let [user, setUser] = useState<any>({})
     let [formaEnter, setformaEnter] = useState(false)
 
     const addUser = () => {
-        dispatch(addSponsorAC(user.name, true, user.radio ))
+        dispatch(addSponsorAC(user.name, true, user.radio))
     }
 
     return <div>
-        {formaEnter || <Donor addUser={addUser} newUser={user} setNewUser={setUser} setformaEnter={setformaEnter}/>}
-        {user.radio === "private" && formaEnter && <Donorcontact/>}
-        {user.radio === "event" &&   formaEnter && <DonorEvent/>}
-        {user.radio === "finance" && formaEnter && <DonorFinance/>}
+        {error && <h3>"Заполните необходимые поля"</h3>}
+        {formaEnter || <Donor addUser={addUser} newUser={user} setNewUser={setUser} setformaEnter={setformaEnter} setError={setError}/>}
+        {user.radio === "private" && formaEnter && <Donorcontact setError={setError}/>}
+        {user.radio === "event" && formaEnter && <DonorEvent setError={setError}/>}
+        {user.radio === "finance" && formaEnter && <DonorFinance />}
         <Rating/>
     </div>
 }
