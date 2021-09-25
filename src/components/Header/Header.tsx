@@ -1,5 +1,6 @@
 import React from 'react';
 import { Menu } from './Menu/Menu';
+import LoginButton from "../LoginForm/LoginButton";
 
 export const Header: React.FC = () => {
 	return (
