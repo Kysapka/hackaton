@@ -56,4 +56,3 @@ export const Donor = (props:propsType) => {
     );
 };
 
-Donor;
