@@ -9,23 +9,28 @@ import {RootStateType} from "../../Store/Store";
 import {addSponsorAC, sponsorsStateType} from "../../Store/Reducer_Sponsor";
 
 export const DonorForm = () => {
-
     const dispatch = useDispatch()
-    let sponsors = useSelector<RootStateType, sponsorsStateType>(state => state.sponsors)
-    let [error, setError] = useState(false)
-    let [user, setUser] = useState<any>({})
-    let [formaEnter, setformaEnter] = useState(false)
+    const sponsors = useSelector<RootStateType, sponsorsStateType>(state => state.sponsors)
+    const [error, setError] = useState(false)
+    const [user, setUser] = useState<any>({})
+    const [formaEnter, setformaEnter] = useState(false)
+    const [radio, setRadio] = useState("")
 
     const addUser = () => {
         dispatch(addSponsorAC(user.name, true, user.radio))
     }
 
     return <div>
+        {console.log(error)}
         {error && <h3>"Заполните необходимые поля"</h3>}
-        {formaEnter || <Donor addUser={addUser} newUser={user} setNewUser={setUser} setformaEnter={setformaEnter} setError={setError}/>}
-        {user.radio === "private" && formaEnter && <Donorcontact setError={setError}/>}
-        {user.radio === "event" && formaEnter && <DonorEvent setError={setError}/>}
-        {user.radio === "finance" && formaEnter && <DonorFinance />}
+        {formaEnter || <Donor addUser={addUser}
+                              newUser={user}
+                              setNewUser={setUser}
+                              setformaEnter={setformaEnter}
+                              setError={setError} radio={radio} setRadio={setRadio}/>}
+        {radio === "private" && formaEnter && <Donorcontact setError={setError}/>}
+        {radio === "event" && formaEnter && <DonorEvent setError={setError}/>}
+        {radio === "finance" && formaEnter && <DonorFinance />}
         <Rating/>
     </div>
 }
