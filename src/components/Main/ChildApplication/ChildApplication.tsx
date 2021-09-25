@@ -63,18 +63,6 @@ export const ChildApplication: React.FC = () => {
                           className={s.appTextarea} onChange={areaHandler} value={child.valueArea}/>
                 <button className={s.appButton} onClick={appChange}>Найди свой путь</button>
             </form>
-
-            // Render Component Data:
-            <div style={{color: "red"}}>
-                <div>{child.login} - login</div>
-                <div>{child.pass} - pass</div>
-                <div>{child.valueName} - valueName</div>
-                <div>{child.valueYears} - valueYears</div>
-                <div>{child.valueJob} - valueJob</div>
-                <div>{child.valueArea} - valueArea</div>
-            </div>
-            // Render Component END:
-
         </div>
 
     );
