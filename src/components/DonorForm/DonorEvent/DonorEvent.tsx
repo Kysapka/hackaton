@@ -55,5 +55,3 @@ export const DonorEvent = (props:propsType) => {
         </div>
     );
 };
-
-DonorEvent;

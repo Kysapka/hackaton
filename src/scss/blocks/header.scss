@@ -2,8 +2,40 @@
   margin-bottom: 100px;
 
   width: 100%;
-  height: 100px;
 
-  background-color: #FFFFFF;
-  border-radius: 30px;
+  color: #FFFFFF;
+
+  .menu {
+    &__list {
+      display: flex;
+    }
+    
+    &__link {
+      padding: 15px 20px;
+
+      display: block;
+      height: 100%;
+      
+      font-size: 1.2rem;
+
+      background-color: #48CFAE;
+
+      transition: background-color 0.3s;
+
+      &.active {
+        background-color: #37bc9b;
+      }
+
+      &:hover {
+        background-color: #37bc9b;
+      }
+    }
+
+    &__image {
+      width: 25px;
+      height: 25px;
+
+      object-fit: cover;
+    }
+  }
 }

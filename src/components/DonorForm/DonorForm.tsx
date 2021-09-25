@@ -29,7 +29,7 @@ export const DonorForm = () => {
 
                 </div>
                 <div>
-                    <button type="submit">отправить
+                    <button type="submit" >отправить
                     </button>
                 </div>
             </form>}

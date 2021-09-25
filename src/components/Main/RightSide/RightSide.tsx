@@ -1,10 +1,10 @@
 import React from 'react';
-import { Button } from '../../Button/Button';
+import { NavLink } from 'react-router-dom';
 
 export const RightSide: React.FC = () => {
 	return (
 		<section className="main-content__right">
-			<Button text="Хочу исполнить мечту" />
+			<NavLink to="/index/donor">Хочу исполнить мечту</NavLink>
 		</section>
 	);
 };
