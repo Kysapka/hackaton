@@ -1,11 +1,9 @@
-import React, {ChangeEvent, useContext, useState} from 'react';
+import React, {ChangeEvent, useState} from 'react';
 import s from './Application.module.css'
-import firebase from "firebase/compat";
+
 import {useDispatch, useSelector} from "react-redux";
 import {RootStateType} from "../../../Store/Store";
-
 import {addChildAC, childStateType} from "../../../Store/Reducer_Child";
-import {v1} from "uuid";
 
 export const ChildApplication: React.FC = () => {
 
@@ -13,9 +11,11 @@ export const ChildApplication: React.FC = () => {
     let childs = useSelector<RootStateType, childStateType>(state => state.childs)
 
     let [child, setChild] = useState<any>({})
+    let [submitChildForm, setSubmitChildForm] = useState(false)
 
     const appChange = () => {
         dispatch(addChildAC(child.login, child.pass, child.valueYears, child.valueName, child.valueJob, child.valueArea))
+        setSubmitChildForm(true)
     }
 
     const nameHandler = (e: ChangeEvent<HTMLInputElement>) => {
@@ -63,18 +63,6 @@ export const ChildApplication: React.FC = () => {
                           className={s.appTextarea} onChange={areaHandler} value={child.valueArea}/>
                 <button className={s.appButton} onClick={appChange}>Найди свой путь</button>
             </form>
-
-            // Render Component Data:
-            <div style={{color: "red"}}>
-                <div>{child.login} - login</div>
-                <div>{child.pass} - pass</div>
-                <div>{child.valueName} - valueName</div>
-                <div>{child.valueYears} - valueYears</div>
-                <div>{child.valueJob} - valueJob</div>
-                <div>{child.valueArea} - valueArea</div>
-            </div>
-            // Render Component END:
-
         </div>
 
     );

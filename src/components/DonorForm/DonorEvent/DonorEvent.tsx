@@ -1,34 +1,42 @@
 import React, {useState} from 'react';
-type propsType={
-    setError:(a:boolean)=>void
+import {Button} from '../../Button/Button';
+
+type propTypeEvent = {
+    setError: (error: boolean) => void
 }
-export const DonorEvent = (props:propsType) => {
+export const DonorEvent = (props: propTypeEvent) => {
+
+    let [nameEvent, setnameEvent] = useState("")
     let [contactMail, setContactMail] = useState("")
-    let [contactSocial, setContactSocial] = useState("")
-    let [event, setEvent] = useState("")
-
-
+    let [contactTextarea, setTextArea] = useState("")
     return (
         <div>
             <form>
-                <p>Здравствуйте</p>
+                <p className="donor__text">Здравствуйте, (имя/фамилия)</p>
                 <div>
-                    <textarea value={event} onChange={(e) => {
-                        setEvent(e.currentTarget.value)
-                    }}/> <label>Расскажите максимально подробно о мероприятии которое вы готовы провести</label>
-                    <input type={"text"} value={contactMail}onChange={(e) => {
-                        setContactMail(e.currentTarget.value)
-                    }}/> <label>Введите свой емэйл</label>
-                    <input type={"text"} value={contactSocial}onChange={(e) => {
-                        setContactSocial(e.currentTarget.value)
-                    }}/><label>Введите ссылку на соцсеть</label>
+                    <label className="donor__item">
+                        <span className="donor__span">Введите свой email</span>
+                        <input className="donor__input" type={"text"} value={contactMail} onChange={(e) => {
+                            setContactMail(e.currentTarget.value)
+                        }}/>
+                    </label>
+
+                    <label className="donor__item">
+                        <span className="donor__span">Введите название мероприятия</span>
+                        <input className="donor__input" type={"text"} value={nameEvent} onChange={(e) => {
+                            setnameEvent(e.currentTarget.value)
+                        }}/>
+                    </label>
+
+                    <label className="donor__textarea">
+                        <span>Расскажите о мероприятии которое хотите провести максимально подробно</span>
+                        <textarea value={contactTextarea} onChange={(e) => {
+                            setTextArea(e.currentTarget.value)
+                        }}/>
+                    </label>
                 </div>
-                <div>
-                    тут должна быть форма для описания события
-                </div>
-                <div>
-                    <button type="submit" onClick={()=>{contactMail && contactSocial ==="" ? props.setError(true):"" }}>отправить
-                    </button>
+                <div className="donor__contact">
+                    <Button text="Отправить" link="/index/magic-profile"/>
                 </div>
             </form>
         </div>

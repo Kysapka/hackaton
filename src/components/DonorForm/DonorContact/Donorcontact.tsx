@@ -1,45 +1,51 @@
 import React, {useState} from 'react';
-
-type propsType={
-    setError:(a:boolean)=>void
+import { Button } from '../../Button/Button';
+type propTypeContact={
+    setError:(error:boolean)=>void
 }
-export const Donorcontact = (props:propsType) => {
+
+export const Donorcontact = (props:propTypeContact) => {
     let [contactMail, setContactMail] = useState("")
     let [contactSocial, setContactSocial] = useState("")
     let [contactTelephone, setContactTelephone] = useState("")
     let [contactTextarea, setTextArea] = useState("")
-    // let [error, setError] = useState(false)
     return (
         <div>
-            {/*{console.log(error)}*/}
-            <div>
-                <p>Здравствуйте</p>
+            <form>
+                <p className="donor__text">Здравствуйте, (имя/фамилия)</p>
                 <div>
-                    {/*{error && <h3 className={"error"}>{"Заполните необходимые поля"}</h3>}*/}
-                    <input type="email" value={contactMail} onChange={(e) => {
-                        setContactMail(e.currentTarget.value)
-                    }}/>
-                    <label>Введите свой емэйл</label>
-                    <input type="text" value={contactSocial} onChange={(e) => {
-                        setContactSocial(e.currentTarget.value)
-                    }}/>
-                    <label>Введите ссылку на соцсеть</label>
-                    <input type="tel" value={contactTelephone} onChange={(e) => {
-                        setContactTelephone(e.currentTarget.value)
-                    }}/>
-                    <label>Введите свой телефон</label>
-                    <textarea value={contactTextarea} onChange={(e) => {
-                        setTextArea(e.currentTarget.value)
-                    }}/>
-                    <label>Расскажите о себе,например,я преподователь английского и хочу оказать адресную помощь</label>
+                    <label className="donor__item">
+                        <span className="donor__span">Введите свой email</span>
+                        <input className="donor__input" type="email" value={contactMail} onChange={(e) => {
+                            setContactMail(e.currentTarget.value)
+                        }}/>
+                    </label>
+
+                    <label className="donor__item">
+                        <span className="donor__span">Введите ссылку на соцсеть</span>
+                        <input className="donor__input" type="text" value={contactSocial} onChange={(e) => {
+                            setContactSocial(e.currentTarget.value)
+                        }}/>
+                    </label>
+
+                    <label className="donor__item">
+                        <span className="donor__span">Введите свой телефон</span>
+                        <input className="donor__input" type="tel" value={contactTelephone} onChange={(e) => {
+                            setContactTelephone(e.currentTarget.value)
+                        }}/>
+                    </label>
+
+                    <label className="donor__textarea">
+                        <span>Расскажите о себе, например, я преподаватель английского и хочу оказать адресную помощь</span>
+                        <textarea value={contactTextarea} onChange={(e) => {
+                            setTextArea(e.currentTarget.value)
+                        }}/>
+                    </label>
                 </div>
-                <div>
-                    <button  onClick={() => {
-                        props.setError(true);
-                    }}>отправить
-                    </button>
+                <div className="donor__contact">
+                    <Button className="donor__contact" text="Отправить" link="/index/magic-profile" />
                 </div>
-            </div>
+            </form>
         </div>
     );
 };

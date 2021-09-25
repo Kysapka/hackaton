@@ -10,7 +10,6 @@ export const Menu: React.FC = () => {
 				<MenuItem text="Рейтинг волшебников" link="/index/magic-rating" />
 				<MenuItem text="Исполненные мечты" link="/index/done-dreams" />
 				<MenuItem text="Готовы провести мероприятие" link="/index/events" />
-				<MenuItem text="Войти" link="/index" />
 			</ul>
 
 		</nav>

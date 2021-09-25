@@ -2,7 +2,7 @@ import {
 	MAGIC_RATING_ROUTE,
 	DONE_DREAMS_ROUTE,
 	EVENTS_ROUTE,
-	INDEX_ROUTE, START_ROUTE, DONOR_ROUTE, DREAM_ROUTE,
+	INDEX_ROUTE, START_ROUTE, DONOR_ROUTE, DREAM_ROUTE, MAGIC_PROFILE_ROUTE, CHILD_PROFILE,
 } from './consts';
 
 import { MagicRating } from '../components/MagicRating/MagicRating';
@@ -13,6 +13,8 @@ import { Start } from '../pages/Start/Start';
 import { Content } from '../pages/Content/Content';
 import { DonorForm } from '../components/DonorForm/DonorForm';
 import { ChildApplication } from '../components/Main/ChildApplication/ChildApplication';
+import { ProfileMagic } from '../ProfileMagic/ProfileMagic';
+import { ChildCabinet } from '../components/ChildCabinet/СhildCabinet';
 
 export const publicRoutes = [
 	{
@@ -38,6 +40,14 @@ export const publicRoutes = [
 	{
 		path: DREAM_ROUTE,
 		Component: ChildApplication,
+	},
+	{
+		path: CHILD_PROFILE,
+		Component: ChildCabinet,
+	},
+	{
+		path: MAGIC_PROFILE_ROUTE,
+		Component: ProfileMagic,
 	},
 ];
 
