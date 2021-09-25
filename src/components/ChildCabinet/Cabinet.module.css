@@ -1,0 +1,40 @@
+.avatar{
+    width:150px;
+    height:150px;
+}
+.container{
+    max-width: 1200px;
+    margin:30px;
+    display: grid;
+    grid-template-rows: 20fr 20fr;
+    grid-template-columns: 4fr 6fr 4fr;
+    grid-gap: 3px;
+    align-items:center;
+    justify-items: center;
+}
+.eventList{
+    display:flex;
+}
+.title{
+    color: white;
+    font-weight: bold;
+}
+.eventsImg{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+.certificatesImg{
+    width: 100px;
+    height: 100px;
+    border-radius: 5px;
+}
+.certificatesList{
+    display:flex;
+    justify-content: space-between;
+    width: 100vh;
+}
+.gridItem{
+    text-align: center;
+    /*margin-bottom: 10px;*/
+}

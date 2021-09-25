@@ -6,6 +6,8 @@ import {BrowserRouter} from "react-router-dom";
 import 'firebase/firestore';
 import 'firebase/auth';
 import firebase from "firebase/compat";
+import {СhildCabinet} from "./components/ChildCabinet/СhildCabinet";
+
 
 
 // Initialize Firebase
@@ -33,7 +35,8 @@ ReactDOM.render(
                 auth,
                 firestore
             }}>
-            <App/>
+                <СhildCabinet/>
+            {/*<App/>*/}
             </Context.Provider>
         </BrowserRouter>
     </React.StrictMode>,
