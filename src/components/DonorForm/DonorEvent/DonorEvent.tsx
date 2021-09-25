@@ -7,6 +7,7 @@ export const DonorEvent = () => {
             <form>
                 <p>Здравствуйте</p>
                 <div>
+                    {/*{}*/}
                     <input type={"text"} value={contact}/>
                     <textarea/>
                 </div>
