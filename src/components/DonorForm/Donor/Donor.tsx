@@ -2,6 +2,7 @@ import React, {useContext, useState} from 'react';
 
 export type userType = {
     name: string
+    password:string
     formaEnter: boolean
     radio: string
 }
@@ -17,14 +18,20 @@ type propsType = {
 }
 
 export const Donor = (props:propsType) => {
+
     return (
         <div>
             <form>
-                <p>Вы волшебник первого уровня, давайте познакомимся. Чем Вы можете помочь?</p>
+                <p>Вы волшебник первого уровня,давайте познакомимся и вы
+                    выберите вид помощи который вы хотите оказать</p>
                 <div>
                     <input type={"text"} value={props.newUser.name} onChange={(e) => {
                         props.setNewUser({...props.newUser, name: e.currentTarget.value})
                     }}/>
+                    <input type={"text"} value={props.newUser.password} onChange={(e) => {
+                        props.setNewUser({...props.newUser,password: e.currentTarget.value})
+                    }}/>
+
                 </div>
                 <div>
                     <input type="radio" id="contactChoice1" name="contact" value="event" onChange={(e) => {
@@ -34,16 +41,17 @@ export const Donor = (props:propsType) => {
                     <input type="radio" id="contactChoice2" name="contact" value="finance" onChange={(e) => {
                         props.setRadio(e.currentTarget.value)
                     }}/>
-                    <label htmlFor="contactChoice2">Я хочу помочь финансово</label>
+                    <label htmlFor="contactChoice2">Оплачу курсы,куплю игрушки,помогу финансово</label>
                     <input type="radio" id="contactChoice3" name="contact" value="private" onChange={(e) => {
                         props.setRadio(e.currentTarget.value)
                     }}/>
-                    <label htmlFor="contactChoice3">Я психолог</label>
+                    <label htmlFor="contactChoice3">Свяжитесь со мной лично</label>
                 </div>
                 <div>
                     <button type="submit" onClick={() => {
                         props.setFormaEnter(true)
                         props.addUser()
+
                     }}>Выбрать вид помощи
                     </button>
                 </div>
