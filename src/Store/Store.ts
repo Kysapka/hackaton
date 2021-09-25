@@ -1,4 +1,3 @@
-export const abcd = () => 1;
 import {setUsersStartAT, UsersReducer} from "./Reducer_User";
 import {combineReducers, createStore, Store} from "redux";
 import {ChildReducer} from "./Reducer_Child";

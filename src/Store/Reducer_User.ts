@@ -1,8 +1,8 @@
 import {v1} from "uuid";
 
-export type initUserType = typeof UserState
+export type initUserType = typeof UserStateType
 
-export const UserState = [
+export const UserStateType = [
     {
         id: v1(),
         name: "",
