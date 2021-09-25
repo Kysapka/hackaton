@@ -1,6 +1,7 @@
 import React from 'react';
 import { MenuItem } from './MenuItem/MenuItem';
 
+
 export const Menu: React.FC = () => {
 	return (
 		<nav className="menu">
@@ -11,6 +12,7 @@ export const Menu: React.FC = () => {
 				<MenuItem text="Готовы провести мероприятие" link="/index/events" />
 				<MenuItem text="Войти" link="/index" />
 			</ul>
+
 		</nav>
 	);
 };
