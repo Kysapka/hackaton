@@ -8,6 +8,7 @@ export const DonorEvent = () => {
                 <p>Здравствуйте</p>
                 <div>
                     <input type={"text"} value={contact}/>
+                    <textarea/>
                 </div>
                 <div>
                     тут должна быть форма для описания события
