@@ -1,15 +1,21 @@
 import React, {useState} from 'react';
 
-export const Donorcontact = () => {
+type propsType={
+    setError:(a:boolean)=>void
+}
+export const Donorcontact = (props:propsType) => {
     let [contactMail, setContactMail] = useState("")
     let [contactSocial, setContactSocial] = useState("")
     let [contactTelephone, setContactTelephone] = useState("")
     let [contactTextarea, setTextArea] = useState("")
+    // let [error, setError] = useState(false)
     return (
         <div>
-            <form>
+            {/*{console.log(error)}*/}
+            <div>
                 <p>Здравствуйте</p>
                 <div>
+                    {/*{error && <h3 className={"error"}>{"Заполните необходимые поля"}</h3>}*/}
                     <input type="email" value={contactMail} onChange={(e) => {
                         setContactMail(e.currentTarget.value)
                     }}/>
@@ -28,11 +34,12 @@ export const Donorcontact = () => {
                     <label>Расскажите о себе,например,я преподователь английского и хочу оказать адресную помощь</label>
                 </div>
                 <div>
-                    <button type="submit" onClick={() => {
+                    <button  onClick={() => {
+                        props.setError(true);
                     }}>отправить
                     </button>
                 </div>
-            </form>
+            </div>
         </div>
     );
 };
